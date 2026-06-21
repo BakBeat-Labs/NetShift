@@ -11,7 +11,7 @@
 		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
 		<ApplicationIcon>Assets\NetShiftIcon.ico</ApplicationIcon>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<Company>ZentrixLabs</Company>
+		<Company>Michael Becker</Company>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<OutputPath>bin\x64\Release\net8.0-windows\</OutputPath>
@@ -34,7 +34,6 @@
 	<ItemGroup>
 		<None Remove="Assets\Orbitron-Bold.ttf" />
 		<None Remove="Assets\Orbitron-Regular.ttf" />
-		<None Remove="Assets\ZentrixLabs_Logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -49,9 +48,6 @@
 		</Resource>
 		<Resource Include="Assets\Orbitron-Bold.ttf" />
 		<Resource Include="Assets\Orbitron-Regular.ttf" />
-		<Content Include="Assets\ZentrixLabs_Logo.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 	</ItemGroup>
 
 	<ItemGroup>

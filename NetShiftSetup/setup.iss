@@ -1,7 +1,7 @@
 [Setup]
 AppName=NetShift
 AppVersion={#MyAppVersion}
-DefaultDirName={pf64}\ZentrixLabs\NetShift
+DefaultDirName={pf64}\NetShift
 DefaultGroupName=NetShift
 OutputDir=..\artifacts
 OutputBaseFilename=NetShiftInstaller
@@ -10,10 +10,10 @@ UninstallDisplayIcon={app}\NetShiftIcon.ico
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
-AppPublisher=ZentrixLabs
-AppPublisherURL=https://zentrixlabs.com
-AppSupportURL=https://zentrixlabs.com/support
-AppUpdatesURL=https://zentrixlabs.com/updates
+AppPublisher=Michael Becker
+AppPublisherURL=https://github.com/Mainframe79/NetShift
+AppSupportURL=https://github.com/Mainframe79/NetShift/issues
+AppUpdatesURL=https://github.com/Mainframe79/NetShift/releases
 SetupLogging=yes
 ArchitecturesInstallIn64BitMode=x64
 

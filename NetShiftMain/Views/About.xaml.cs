@@ -13,11 +13,11 @@ namespace NetShift.Views
 
         }
 
-        private void ZentrixLink_Click(object sender, MouseButtonEventArgs e)
+        private void GitHubLink_Click(object sender, MouseButtonEventArgs e)
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://zentrixlabs.net",
+                FileName = "https://github.com/Mainframe79/NetShift",
                 UseShellExecute = true
             });
         }
