@@ -3,7 +3,7 @@
 
 ![Build](https://img.shields.io/github/actions/workflow/status/BakBeat-Labs/NetShift/deploy.yml?event=push)
 ![Release](https://img.shields.io/github/v/release/BakBeat-Labs/NetShift)
-![License](https://img.shields.io/github/license/BakBeat-Labs/NetShift)
+![License](https://img.shields.io/badge/license-PolyForm%20Internal%20Use%201.0.0-blue)
 ![Last Commit](https://img.shields.io/github/last-commit/BakBeat-Labs/NetShift)
 
 ## Download
@@ -178,7 +178,8 @@ The service exposes a localhost-only named pipe interface and validates all requ
 ---
 
 ## License
-NetShift is licensed under the [MIT License](LICENSE).
+NetShift is source-available under the [PolyForm Internal Use License 1.0.0](LICENSE).  
+You may use it free of charge, including within a company for its internal business operations. You may not distribute it, sell it, or incorporate it into other software. Versions released before this change remain available under the MIT License.
 
 If you'd like to support this project:
 
