@@ -1,13 +1,13 @@
 
 # NetShift
 
-![Build](https://img.shields.io/github/actions/workflow/status/Mainframe79/NetShift/deploy.yml?event=push)
-![Release](https://img.shields.io/github/v/release/Mainframe79/NetShift)
-![License](https://img.shields.io/github/license/Mainframe79/NetShift)
-![Last Commit](https://img.shields.io/github/last-commit/Mainframe79/NetShift)
+![Build](https://img.shields.io/github/actions/workflow/status/BakBeat-Labs/NetShift/deploy.yml?event=push)
+![Release](https://img.shields.io/github/v/release/BakBeat-Labs/NetShift)
+![License](https://img.shields.io/github/license/BakBeat-Labs/NetShift)
+![Last Commit](https://img.shields.io/github/last-commit/BakBeat-Labs/NetShift)
 
 ## Download
-The latest release of NetShift is available on the [Releases page](https://github.com/Mainframe79/NetShift/releases).  
+The latest release of NetShift is available on the [Releases page](https://github.com/BakBeat-Labs/NetShift/releases).  
 Download the `NetShiftInstaller.exe` file directly from GitHub Releases and run it as Administrator to install.
 	•	Install
 	•	Launch
@@ -48,7 +48,7 @@ The app is designed to be **user-friendly**, **secure**, and **efficient**, mini
 - .NET 8 Desktop Runtime.
 
 ### Steps to Install
-1. Download the latest `NetShiftInstaller.exe` from the [Releases](https://github.com/Mainframe79/NetShift/releases) page.
+1. Download the latest `NetShiftInstaller.exe` from the [Releases](https://github.com/BakBeat-Labs/NetShift/releases) page.
 2. Run `NetShiftInstaller.exe` as Administrator.
 3. Follow the installer prompts.
 
@@ -114,7 +114,7 @@ If you want to build manually:
 1. **Clone the Repository**:
 
 ```bash
-git clone https://github.com/Mainframe79/NetShift.git
+git clone https://github.com/BakBeat-Labs/NetShift.git
 cd NetShift
 ```
 

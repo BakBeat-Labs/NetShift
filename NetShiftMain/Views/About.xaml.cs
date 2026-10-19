@@ -17,7 +17,7 @@ namespace NetShift.Views
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://github.com/Mainframe79/NetShift",
+                FileName = "https://github.com/BakBeat-Labs/NetShift",
                 UseShellExecute = true
             });
         }

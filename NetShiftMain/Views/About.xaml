@@ -51,7 +51,7 @@
                        Margin="0,10,0,0" />
 
             <!-- Website Link -->
-            <TextBlock Text="https://github.com/Mainframe79/NetShift"
+            <TextBlock Text="https://github.com/BakBeat-Labs/NetShift"
                        Foreground="{StaticResource AboutCyanBrush}"
                        FontSize="14"
                        Cursor="Hand"

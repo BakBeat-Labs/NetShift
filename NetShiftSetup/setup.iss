@@ -11,9 +11,9 @@ Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
 AppPublisher=Michael Becker
-AppPublisherURL=https://github.com/Mainframe79/NetShift
-AppSupportURL=https://github.com/Mainframe79/NetShift/issues
-AppUpdatesURL=https://github.com/Mainframe79/NetShift/releases
+AppPublisherURL=https://github.com/BakBeat-Labs/NetShift
+AppSupportURL=https://github.com/BakBeat-Labs/NetShift/issues
+AppUpdatesURL=https://github.com/BakBeat-Labs/NetShift/releases
 SetupLogging=yes
 ArchitecturesInstallIn64BitMode=x64
 
