@@ -34,7 +34,7 @@ The app is designed to be **user-friendly**, **secure**, and **efficient**, mini
 | Risk | Mitigation |
 |:-----|:-----------|
 | **Service runs as LocalSystem** | Local-only named pipe, input validation, and code signing. |
-| **Code signing** | All binaries are signed via SSL.com cloud signing to preserve trust. |
+| **Code signing** | All released binaries and the installer are signed locally with a hardware-token code signing certificate to preserve trust. |
 | **User privilege model** | Main app runs standard user level (`asInvoker`), no UAC prompt. |
 | **Log files** | Logs are stored under user-local AppData, access-controlled. |
 | **Local network communication** | WCF NetNamedPipeBinding used, locked to localhost only. |
@@ -72,16 +72,38 @@ NetShiftInstaller.exe /SILENT /NORESTART
 
 ## Building and Contributing
 
-### Automated Build and Release
+### Automated Build and Draft Release
 
-This project uses **GitHub Actions** to automatically:
-- Build the NetShift application (NetShiftMain), service (NetShiftServiceCpp), and installer helper (NetShiftServiceInstaller).
-- Package the signed installer EXE using Inno Setup.
-- Cloud sign all binaries using SSL.com eSigner.
-- Publish new signed releases on GitHub.
+This project uses **GitHub Actions** to:
+- Build NetShiftMain, NetShiftServiceCpp, and NetShiftServiceInstaller and stamp the version from the tag.
+- Upload the **unsigned** build output as the `NetShift-Unsigned-Binaries` workflow artifact (kept 30 days).
+- Create a **draft** GitHub Release for the tag.
 
-The pipeline **only triggers** when:
-- A version tag (e.g., v1.0.1) is pushed.
+The pipeline **only triggers** when a version tag (e.g., `v1.0.1`) is pushed. CI does **not** sign anything: the code signing certificate lives on a hardware token, so signing and packaging the installer are done manually (see below). The `Build Test Installer` workflow (manual dispatch) produces an unsigned test installer only.
+
+---
+
+### Releasing (manual signing with hardware token)
+
+Run on a Windows machine with the token attached, the certificate's signing tools (Windows SDK `signtool.exe`), and Inno Setup 6 installed.
+
+1. **Tag and push**: `git tag v1.0.1 && git push origin v1.0.1`, then wait for the *Build Unsigned Binaries and Draft Release* workflow to finish.
+2. **Get the build output**: check out the tag, then download the `NetShift-Unsigned-Binaries` artifact from the workflow run and extract it over the repo root, so the files land where `setup.iss` expects them (`NetShiftMain\bin\x64\Release\net8.0-windows\`, `NetShiftServiceCpp\x64\Release\`, `NetShiftServiceInstaller\x64\Release\`).
+3. **Sign the binaries** (token PIN prompt will appear):
+   ```bash
+   signtool sign /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 /a NetShiftMain\bin\x64\Release\net8.0-windows\net8.0-windows\NetShiftMain.exe NetShiftServiceCpp\x64\Release\NetShiftServiceCpp.exe NetShiftServiceInstaller\x64\Release\NetShiftServiceInstaller.exe
+   ```
+   Use your CA's timestamp server and add `/sha1 <thumbprint>` if more than one certificate is available.
+4. **Build the installer** from the signed binaries:
+   ```bash
+   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" NetShiftSetup\setup.iss /DMyAppVersion="1.0.1"
+   ```
+5. **Sign the installer**:
+   ```bash
+   signtool sign /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 /a artifacts\NetShiftInstaller.exe
+   signtool verify /pa /v artifacts\NetShiftInstaller.exe
+   ```
+6. **Publish**: upload `NetShiftInstaller.exe` to the draft release on GitHub (or `gh release upload v1.0.1 artifacts\NetShiftInstaller.exe`), review the notes, and publish the release.
 
 ---
 
